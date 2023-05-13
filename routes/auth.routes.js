@@ -13,4 +13,9 @@ router.post('/iniciar-sesion', (req, res, next) => {
 
 })
 
+//Logout
+router.get('/desconectar', (req, res, next) => {
+    req.session.destroy(() => res.redirect('/'))
+})
+
 module.exports = router;
