@@ -2,17 +2,16 @@
   <div class="container pt-5">
     <h1 class="text-white text-center pt-5">API Data</h1>
     <div class="row row-cols-1 row-cols-md-5 g-4">
-      {{#each movie.result}}
+      {{#each movie}}
         <div class="col">
           <div class="card">
             <img
-              src="https://image.tmdb.org/t/p/original/{{posterPath}}"
+              src=""
               class="card-img-top"
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title text-center">{{title}}</h5>
-              <p class="card-text">{{streamingInfo}}
+              <h5 class="card-title text-center">{{name}}</h5>
               </p>
             </div>
           </div>
