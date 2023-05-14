@@ -48,6 +48,7 @@ Sólo es necesario contar con un servidor web con Node.js
 | morgan        | 1.10.0  |
 | serve-favicon | 2.5.0   |
 | nodemon       | 2.0.22  |
+| axios         | 1.4.0   |
 
 ---
 
