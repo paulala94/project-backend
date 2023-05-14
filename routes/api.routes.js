@@ -1,10 +1,17 @@
 const router = require("express").Router()
 const axios = require("axios")
 
-let url = 'https://api.watchmode.com/v1/sources/?apiKey=Q4LKmOUsrfIXDtxvYpU5OKRjwjyeibHPGuFaFHlh ';
+const options = {
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/trending/movie/week?language=en-US',
+    headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZmE0OTYyZDhhMGQwZTM5NzI0NzViNzNkMGRkOTMwYyIsInN1YiI6IjY0NjBmMWY5ZTNmYTJmMDEwM2ExMzhlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NSw_-y69moAP6jKmJZNllQ10KA-AL_WSRvswkuW2Q-w'
+    }
+};
 
 router.get("/peliculas-new", (req, res, next) => {
-    axios.get(url)
+    axios.request(options)
         .then(response => {
             res.render("api/new-movie", { movie: response.data });
             console.log(response.data);
@@ -13,8 +20,6 @@ router.get("/peliculas-new", (req, res, next) => {
             next(err)
         });
 });
-
-
 
 module.exports = router;
 

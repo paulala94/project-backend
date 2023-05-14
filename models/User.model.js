@@ -25,6 +25,9 @@ const userSchema = new Schema(
       trim: true,
       minlength: 3
     },
+    events: {
+      enum: [ ]
+    },
     role: {
       type: String,
       enum: ['USER', 'ADMIN'],
