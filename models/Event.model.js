@@ -1,34 +1,30 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
-const userSchema = new Schema(
+const eventSchema = new Schema(
   {
-    username: {
-      type: String,
-      trim: true,
-      required: true,
-      unique: true,
-      minlength: 3
-    },
-    email: {
+    name: {
       type: String,
       required: true,
-      unique: true,
-      lowercase: true,
-      trim: true,
-      minlength: 3
-
+      minlength: 3,
     },
-    password: {
+    description: {
       type: String,
       required: true,
-      trim: true,
-      minlength: 3
+      minlength: 3,
     },
-    role: {
+    location: {
       type: String,
-      enum: ['USER', 'ADMIN'],
-      default: 'USER',
+      required: true,
+      minlength: 3,
+    },
+    date: {
+      type: Date,
+      required: true,
+    },
+    attendees: {
+      type: Number,
+      required: true,
     }
   },
   {
@@ -37,6 +33,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
+const Event = model("Event", userSchema);
 
-module.exports = User;
+module.exports = Event;
